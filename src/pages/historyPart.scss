@@ -7,8 +7,10 @@
   }
   .history-header {
     .date {
+      display: flex;
+      align-items: center;
       .icon-calendar {
-        padding-top: 0.7em;
+        // padding-top: 0.7em;
         padding-right: 0.2em;
       }
       font-size: 14px;

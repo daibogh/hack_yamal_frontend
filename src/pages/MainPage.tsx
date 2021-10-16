@@ -1,12 +1,11 @@
 import React from 'react';
-import { HistoryPart } from './historyPart';
+import { MainLayout } from '../components/MainLayout';
 
 export const MainPage: React.FC = ({ children }) => {
   return (
     <div style={{ display: 'flex' }}>
+      <MainLayout />
       {children}
-      <div style={{ background: 'red', width: '40%' }}>J</div>
-      <HistoryPart />
     </div>
   );
 };

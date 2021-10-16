@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import style from './Modal.module.scss';
 import { Modal as ModalTemplate } from '@consta/uikit/Modal';
 import { Layout } from '../Layout';
 import { Button } from '@consta/uikit/Button';
 import { IconClose } from '@consta/uikit/IconClose';
+import useClickOutside from 'use-click-outside';
 interface ModalProps {
   className?: string;
   show: boolean;
@@ -29,7 +30,9 @@ const Modal: React.FC<ModalProps> = ({
     >
       <Layout className={`${style.modal} ${className}`} direction="column">
         <Layout className={`${style.header}`}>
-          <div className={`${style.headerText}`}>{header}</div>
+          <div className={`${style.headerText}`}>
+            {header}
+          </div>
           <Button
             className={`${style.icon}`}
             view="clear"
