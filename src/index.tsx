@@ -5,8 +5,6 @@ import { createBrowserHistory } from 'history';
 
 import App from './App';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 const history = createBrowserHistory();
 
 ReactDOM.render(
