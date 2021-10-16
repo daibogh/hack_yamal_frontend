@@ -1,0 +1,40 @@
+.root {
+}
+.logo {
+  font-weight: bold;
+  font-size: 20.1305px;
+  line-height: 140%;
+  color: #0058de;
+}
+.logoFirstChar {
+  color: #0094ff;
+}
+.userBlock {
+  display: flex;
+  height: 32px;
+  align-items: center;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+.userName {
+  font-weight: normal;
+  font-size: 15.657px;
+  line-height: 100%;
+  color: #002033;
+}
+.logout {
+  font-weight: normal;
+  font-size: 11.1836px;
+  line-height: 100%;
+  color: rgba(0, 32, 51, 0.6);
+  display: block;
+  margin-left: auto;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

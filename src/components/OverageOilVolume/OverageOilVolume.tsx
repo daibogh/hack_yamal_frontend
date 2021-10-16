@@ -9,7 +9,10 @@ type Stats = {
   label: string;
   items: StatsItem[];
 };
-type ChartStats = StatsItem & { label: string };
+type ChartStats = Omit<StatsItem, 'oilVolume'> & {
+  label: string;
+  Количество: StatsItem['oilVolume'];
+};
 type StatsItem = {
   oilType: string;
   oilVolume: number;
@@ -31,31 +34,42 @@ const OverageOilVolume: React.FC<OverageOilVolumeProps> = ({
     () => [
       ...(previous?.items || ([] as StatsItem[])).map((item) => ({
         ...item,
+        Количество: item.oilVolume,
         label: previous?.label || '',
       })),
-      ...current.items.map((item) => ({ ...item, label: current.label })),
+      ...current.items.map((item) => ({
+        ...item,
+        Количество: item.oilVolume,
+        label: current.label,
+      })),
     ],
     []
   );
   return (
-    <Layout direction="column">
+    <div className={style.root}>
       <Header leftSide={title} className={style.header} />
-      <Bar
-        data={data}
-        style={{ marginBottom: 'var(--space-m)' }}
-        xField="oilVolume"
-        yField="oilType"
-        seriesField={!!previous ? 'label' : undefined}
-        isGroup={!!previous}
-        color={!!previous ? ['#0094FF', '#0059DF'] : ['#0059DF']}
-        label={{
-          position: 'middle',
-          style: {
-            fill: 'white',
-          },
-        }}
-      />
-    </Layout>
+      <div className={style.content}>
+        <Bar
+          data={data}
+          style={{ marginBottom: 'var(--space-m)' }}
+          xField="Количество"
+          yField="oilType"
+          seriesField={!!previous ? 'label' : undefined}
+          isGroup={!!previous}
+          color={!!previous ? ['#0094FF', '#0059DF'] : ['#0059DF']}
+          label={{
+            position: 'middle',
+            layout: [
+              { type: 'interval-adjust-position' },
+              { type: 'interval-hide-overlap' },
+            ],
+            style: {
+              fill: 'white',
+            },
+          }}
+        />
+      </div>
+    </div>
   );
 };
 

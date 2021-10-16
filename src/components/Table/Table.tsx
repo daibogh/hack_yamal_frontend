@@ -3,11 +3,12 @@ import './Table.scss';
 
 import { Table as TableTemplate, TableColumn } from '@consta/uikit/Table';
 import { Badge } from '../Badge';
+import { useDeliveriesHistory } from '../../hooks/api/use-deliveries-history';
 
 enum Type {
   DTATY = 'ДТ "А" ТУ',
   DZGOST = 'ДТ "З" ГОСТ',
-  DTAGOST = 'ДТ "А" ГОСТ'
+  DTAGOST = 'ДТ "А" ГОСТ',
 }
 
 const getColor = (type: Type) => {
@@ -17,19 +18,19 @@ const getColor = (type: Type) => {
     case Type.DTATY:
       return 'success';
     case Type.DTAGOST:
-      return "system";
+      return 'system';
   }
 };
 
-interface Test {
+interface DeliveryHistoryInstance {
   id: string;
-  name: string;
+
   date: string;
   type: Type;
   count: number;
 }
 
-const columns: TableColumn<Test>[] = [
+const columns: TableColumn<DeliveryHistoryInstance>[] = [
   {
     title: 'Дата поставки',
     accessor: 'date',
@@ -37,7 +38,7 @@ const columns: TableColumn<Test>[] = [
   {
     title: 'Тип топлива',
     accessor: 'type',
-    renderCell: (row: Test) => (
+    renderCell: (row: DeliveryHistoryInstance) => (
       <Badge
         view="stroked"
         status={getColor(row.type)}
@@ -51,43 +52,21 @@ const columns: TableColumn<Test>[] = [
   },
 ];
 
-const rows: Test[] = [
-  {
-    id: '1',
-    name: 'Антон',
-    date: '28 августа 2021',
-    type: Type.DTATY,
-    count: 10,
-  },
-  {
-    id: '2',
-    name: 'Василий',
-    date: '22 августа 2021',
-    type: Type.DZGOST,
-    count: 40,
-  },
-  {
-    id: '3',
-    name: 'Василий',
-    date: '10 августа 2021',
-    type: Type.DTAGOST,
-    count: 13,
-  },
-];
 interface TableProps {
   className?: string;
 }
 
 const Table: React.FC<TableProps> = ({ className }) => {
+  const rows = useDeliveriesHistory();
   return (
     <TableTemplate
       columns={columns}
       rows={rows}
       borderBetweenRows
-      headerVerticalAlign='center'
+      headerVerticalAlign="center"
       verticalAlign="center"
       className={`${className} CustomTableRoot`}
-    ></TableTemplate>
+    />
   );
 };
 
