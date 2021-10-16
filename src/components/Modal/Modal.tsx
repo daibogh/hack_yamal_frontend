@@ -20,7 +20,6 @@ const Modal: React.FC<ModalProps> = ({
   footerLabel,
   children,
 }) => {
-  console.log(children)
   return (
     <ModalTemplate
       onEsc={onClose}

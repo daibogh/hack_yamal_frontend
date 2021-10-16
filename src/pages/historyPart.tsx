@@ -80,13 +80,12 @@ export const HistoryPart: React.FC = () => {
       </Layout>
       <Table className="table" />
       <Modal
-        className="modal"
         footerLabel="Запросить"
         header="Запрос на поставку"
         show={showModal}
         onClose={() => setShowModal(false)}
       >
-        <Layout className="modal" direction="column">
+        <Layout direction="column">
           <Select
             label="Тип топлива"
             value={request.type}

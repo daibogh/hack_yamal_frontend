@@ -1,0 +1,37 @@
+.map {
+  height: 60em;
+  width: 60em;
+  [class*="ymaps-2"][class*="-ground-pane"] {
+    -webkit-filter: grayscale(100%) url(/path-to-svg/yellowfilter.svg#yellowfilter);
+            filter: grayscale(100%) url(/path-to-svg/yellowfilter.svg#yellowfilter);
+  }
+  .header {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #0059df;
+    margin-bottom: 1em;
+  }
+  .type {
+    width: 7em;
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 350;
+    font-size: 12px;
+    align-items: center;
+    color: #667985;
+  }
+  .count {
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    color: #002033;
+  }
+  .line {
+    display: flex;
+    width: 11em;
+    margin-bottom: 0.5em;
+  }
+}
