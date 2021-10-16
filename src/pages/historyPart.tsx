@@ -46,7 +46,7 @@ export const HistoryPart: React.FC = () => {
     label: 'Все виды топлива',
     id: 1,
   });
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [request, setRequest] = useState<{
     type?: DefaultItem;
     count: number;
