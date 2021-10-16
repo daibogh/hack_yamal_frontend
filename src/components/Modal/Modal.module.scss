@@ -1,0 +1,33 @@
+.root {
+  height: 100%;
+}
+
+.modal {
+  height: 100%;
+  padding: 0.9em;
+}
+.headerText {
+  color: #002033;
+  font-family: Segoe UI;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+}
+.header {
+  color: #002033;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon {
+  color: #002033;
+}
+.button {
+  background: #0059df;
+}
+.footer {
+  justify-content: end;
+}
+.info {
+  height: 100%;
+  justify-content: space-between;
+}

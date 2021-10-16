@@ -1,0 +1,16 @@
+.CustomTableRoot {
+  .TableHeader-Row > * {
+    text-transform: none;
+    background: #0059df;
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .TableHeader-Row > :first-child {
+    border-radius: 6px 0 0 0;
+  }
+  .TableHeader-Row > :last-child {
+    border-radius: 0 6px 0 0;
+  }
+}
