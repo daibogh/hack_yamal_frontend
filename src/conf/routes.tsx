@@ -1,5 +1,6 @@
-import React, { ComponentProps, useMemo, useEffect } from 'react';
+import React, { ComponentProps, useMemo } from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { LoginPage } from '../pages/LoginPage';
 import { MainPage } from '../pages/MainPage';
 type RouteInstance = ComponentProps<typeof Route> & { auth?: boolean } & {
   routes?: RouteInstance[];
@@ -17,6 +18,11 @@ export const useRoutesConfig: () => RouteInstance[] = () => {
         path: '/',
         component: MainPage,
         routes: [
+          {
+            path: '/login',
+            component: LoginPage,
+            exact: true,
+          },
           {
             path: '/producer',
             component: () => <>producer</>,
@@ -42,9 +48,8 @@ export const GuardedRouteWithSubRoutes: React.FC<{ route: RouteInstance }> = ({
 }) => {
   const isNeededAuth = route.needsAuth;
   const isAuth = route.auth;
-  console.log(route);
   return isNeededAuth && !isAuth ? (
-    <Redirect to={{ pathname: '/' }} />
+    <Redirect to={{ pathname: '/login' }} />
   ) : (
     <Route
       path={route.path}
