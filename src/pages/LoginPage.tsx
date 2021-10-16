@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { TextField } from '@consta/uikit/TextField';
 export const LoginPage: React.FC = () => {
