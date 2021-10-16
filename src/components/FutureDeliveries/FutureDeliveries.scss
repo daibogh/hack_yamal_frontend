@@ -1,0 +1,28 @@
+.FutureDeliveries {
+  .Badge {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    padding: 15px !important;
+
+    text-transform: uppercase;
+
+    color: #0059df;
+  }
+  &_itemsContainer {
+    padding: 13px 26px;
+    &
+      > .Layout_direction_column
+      > .Layout_direction_row
+      + .Layout_direction_row {
+      margin-top: 30px;
+    }
+    & > .Layout_direction_column > .Layout_direction_row {
+      align-items: center;
+    }
+  }
+}

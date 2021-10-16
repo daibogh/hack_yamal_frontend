@@ -1,0 +1,29 @@
+.header > header {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 600;
+  background-color: #0059df;
+  color: white;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+.oilType {
+  font-size: 16px;
+  font-weight: 700;
+  color: #002033;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+.createdDate {
+  color: #667985;
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 350;
+}
+.count {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+
+  color: #002033;
+}
