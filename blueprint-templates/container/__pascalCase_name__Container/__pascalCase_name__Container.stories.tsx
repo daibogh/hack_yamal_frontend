@@ -1,14 +1,14 @@
 import React from 'react';
 import { Theme, presetGpnDefault } from '@consta/uikit/Theme';
-import {{pascalCase name}} from './{{pascalCase name}}';
+import {{pascalCase name}}Container from './{{pascalCase name}}Container';
 
 export default {
-  title: `atoms|{{pascalCase name}}`,
-  component: {{pascalCase name}},
+  title: `container|{{pascalCase name}}Container`,
+  component: {{pascalCase name}}Container,
 };
 
 export const {{pascalCase name}}_ = () => {
   return <Theme preset={presetGpnDefault}>
-    <{{pascalCase name}} />
+    <{{pascalCase name}}Container />
   </Theme>
 };

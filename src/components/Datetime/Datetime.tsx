@@ -8,7 +8,7 @@ interface DatetimeProps {
 const Datetime: React.FC<DatetimeProps> = ({ className }) => {
   return (
     <div className={`${style.root} ${className}`}>
-      <DateTime view="slider" type="month" />
+      <DateTime view="book" type="month" />
     </div>
   );
 };

@@ -1,19 +1,17 @@
 import React from 'react';
 import { Theme, presetGpnDefault } from '@consta/uikit/Theme';
-import Datetime from './Datetime';
+import DateTimeContainer from './DateTimeContainer';
 import { Layout } from '@consta/uikit/LayoutCanary';
 export default {
-  title: `atoms|Datetime`,
-  component: Datetime,
+  title: `container|DateTimeContainer`,
+  component: DateTimeContainer,
 };
 
-export const Datetime_ = () => {
+export const DateTime_ = () => {
   return (
     <Theme preset={presetGpnDefault}>
       <Layout>
-        <Layout flex={1}>
-          <Datetime />
-        </Layout>
+        <DateTimeContainer />
       </Layout>
     </Theme>
   );
