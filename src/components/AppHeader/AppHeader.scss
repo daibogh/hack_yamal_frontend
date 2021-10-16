@@ -1,0 +1,10 @@
+.AppHeader .Breadcrumbs-Item + .Breadcrumbs-Item {
+  color: #002033;
+  font-weight: bold;
+  font-size: 20.13px;
+  line-height: 140%;
+  & > .IconArrowRight {
+    --icon-size: var(--graphics-size-m);
+    color: #002033;
+  }
+}

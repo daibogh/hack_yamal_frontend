@@ -9,7 +9,7 @@ type RouteInstance = ComponentProps<typeof Route> & { auth?: boolean } & {
 };
 export const useRoutesConfig: () => RouteInstance[] = () => {
   const isAuth = {
-    producer: true,
+    client: true,
     stakeholder: true,
   }; // TODO add fake auth
   return useMemo(
@@ -24,15 +24,15 @@ export const useRoutesConfig: () => RouteInstance[] = () => {
             exact: true,
           },
           {
-            path: '/producer',
-            component: () => <>producer</>,
+            path: '/client',
+            component: () => null,
             needsAuth: true,
             exact: true,
-            auth: isAuth.producer,
+            auth: isAuth.client,
           },
           {
             path: '/stakeholder',
-            component: () => <>stakeholder</>,
+            component: () => null,
             needsAuth: true,
             exact: true,
             auth: isAuth.stakeholder,

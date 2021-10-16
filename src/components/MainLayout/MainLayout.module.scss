@@ -1,0 +1,18 @@
+.root {
+  width: 100vw;
+  height: 100vh;
+  & > * {
+    height: calc(100% - 72px);
+    box-sizing: border-box;
+  }
+  background-color: #e5e5e5;
+}
+.header {
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 32px 21px 32px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 65, 102, 0.2);
+  background-color: white;
+}
