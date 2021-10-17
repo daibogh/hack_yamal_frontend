@@ -14,7 +14,7 @@ import './historyPart.scss';
 import { DatePicker } from '../components/DatePicker';
 import { TextField } from '../components/TextField';
 
-const items: DefaultItem[] = [
+export const items: DefaultItem[] = [
   {
     label: 'Все виды топлива',
     id: 1,
@@ -80,6 +80,7 @@ export const HistoryPart: React.FC = () => {
       </Layout>
       <Table className="table" />
       <Modal
+      onApply={() => setShowModal(false)}
         footerLabel="Запросить"
         header="Запрос на поставку"
         show={showModal}

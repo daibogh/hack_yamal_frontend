@@ -1,13 +1,13 @@
 import React from 'react';
-import { GeoEventModel, Map } from '../components/mapLibrary/components/map';
-import { Placemark } from '../components/mapLibrary/components/placemark';
+import { GeoEventModel, Map } from '../../components/mapLibrary/components/map';
+import { Placemark } from '../../components/mapLibrary/components/placemark';
+
 import './cityMaps.scss';
 
 const mapState: ymaps.MapState = {
   center: [69.148271, 77.100097],
   zoom: 5,
   controls: ['zoomControl'],
-  type:'yandex#map'
 };
 
 const placemarksConst: GeoEventModel[] = [
@@ -52,28 +52,28 @@ const placemarksConst: GeoEventModel[] = [
   }, //сеяха
 ];
 
-export const CityMaps: React.FC = ({ children }) => {
-  const mapParametrsApi: ymaps.ParametrsApi = {
-    apikey: 'def62d81-e99f-4395-8b66-dbf1a1d64c1a',
-    lang: 'ru_RU',
-    mode: 'debug',
-  };
+const mapParametrsApi: ymaps.ParametrsApi = {
+  apikey: 'def62d81-e99f-4395-8b66-dbf1a1d64c1a',
+  lang: 'ru_RU',
+  mode: 'debug',
+};
 
+export const CityMaps: React.FC = ({ children }) => {
   return (
-      <Map
-        className="map"
-        geoEvents={[]}
-        parametrsApi={mapParametrsApi}
-        state={mapState}
-      >
-        {placemarksConst.map((event, key) => (
-          <Placemark
-            model={event}
-            key={key + 'Placemark'}
-            onClick={() => {}}
-            geometry={[event.lat, event.lon]}
-          ></Placemark>
-        ))}
-      </Map>
+    <Map
+      className="map"
+      geoEvents={[]}
+      parametrsApi={mapParametrsApi}
+      state={mapState}
+    >
+      {placemarksConst.map((event, key) => (
+        <Placemark
+          model={event}
+          key={key + 'Placemark'}
+          onClick={() => {}}
+          geometry={[event.lat, event.lon]}
+        ></Placemark>
+      ))}
+    </Map>
   );
 };

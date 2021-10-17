@@ -4,6 +4,7 @@ export interface Fuel {
   weight: number;
   name: string;
 }
+
 export interface GeoEventModel {
   lat: number;
   lon: number;
@@ -81,7 +82,7 @@ export const Map: React.FC<Props> = ({
             geometry,
             {
               balloonContent: balloonContentLayout,
-              iconCaption: model.name
+              iconCaption: model.name,
             },
             { preset: 'islands#circleIcon', iconColor: '#0059DF' }
           );
@@ -94,7 +95,7 @@ export const Map: React.FC<Props> = ({
               item.props?.geometry,
               item.props.model as GeoEventModel
             );
-            if (myMap && myPlacemark) myMap.geoObjects.add(myPlacemark);
+            myMap?.geoObjects.add(myPlacemark);
           }
         });
 
@@ -113,7 +114,7 @@ export const Map: React.FC<Props> = ({
     } catch (error) {
       console.log(error);
     }
-  }, 1000);
+  }, 800);
 
   return (
     <div className={className} id="map">

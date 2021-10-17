@@ -4,21 +4,27 @@ import { DragNDropField } from '../DragNDropField';
 import { Modal } from '../Modal';
 import './buildingWayModal.scss';
 
-export const BuildingWayModal: React.FC = ({ children }) => {
-  const [show, setShow] = useState(true);
+interface BuildingWayModalProps {
+  show: boolean;
+  onClose: () => void;
+}
+
+export const BuildingWayModal: React.FC<BuildingWayModalProps> = ({
+  children,
+  show,
+  onClose,
+}) => {
   return (
-    <div>
-      <Button onClick={() => setShow(true)}></Button>
-      <Modal
-        className="modal"
-        header="Построение маршрута"
-        footerLabel="Построить"
-        show={show}
-        onClose={() => setShow(false)}
-      >
-        <DragNDropField label="Характеристики флота" />
-        <DragNDropField label="График отгрузки" />
-      </Modal>
-    </div>
+    <Modal
+      onApply={onClose}
+      className="modal"
+      header="Построение маршрута"
+      footerLabel="Построить"
+      show={show}
+      onClose={onClose}
+    >
+      <DragNDropField label="Характеристики флота" />
+      <DragNDropField label="График отгрузки" />
+    </Modal>
   );
 };

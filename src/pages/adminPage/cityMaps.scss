@@ -1,6 +1,6 @@
 .map {
-  height: 60em;
-  width: 60em;
+  height: 100%;
+  width: 100%;
   [class*="ymaps-2"][class*="-ground-pane"] {
     -webkit-filter: grayscale(100%) url(/path-to-svg/yellowfilter.svg#yellowfilter);
             filter: grayscale(100%) url(/path-to-svg/yellowfilter.svg#yellowfilter);

@@ -1,0 +1,23 @@
+.date {
+  width: 6em;
+  margin-right: 0.2em;
+}
+.download {
+    margin-left: 0.5em;
+  background: #0059df;
+}
+.list {
+  background: #0094ff;
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+.filters {
+  display: flex;
+}
+.select {
+  width: 10em;
+  margin-left: 1em;
+}
