@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './AppHeader.module.scss';
-import './AppHeader.scss';
 import { Breadcrumbs } from '@consta/uikit/Breadcrumbs';
 import { Avatar } from '@consta/uikit/Avatar';
 import { useCurrentRoute } from '../../hooks/use-current-route';
 import { Link } from 'react-router-dom';
+import { ContextMenu } from '../ContextMenu';
+import './AppHeader.scss';
+import { BuildingWayModal } from '../BuildingWayModal/buildingWayModal';
+
+const items: { id: number; name: string }[] = [
+  { id: 1, name: 'Построить маршрут' },
+  { id: 2, name: 'Посмотреть архив маршрутов' },
+];
+
 interface AppHeaderProps {
   className?: string;
 }
 
 const AppHeader: React.FC<AppHeaderProps> = ({ className }) => {
   const { isClient } = useCurrentRoute();
+
+  const [showBuildingModal, setShowBuildingModal] = useState(false);
+
   const userFullName = isClient ? 'Дмитриев Александр' : 'Иванов Иван'; // TODO 2) Mock на инфу о пользователе
   const pages = [
     {
@@ -47,7 +58,15 @@ const AppHeader: React.FC<AppHeaderProps> = ({ className }) => {
           </Link>
         </div>
         <Avatar name={userFullName} />
+        <ContextMenu
+          onSelect={(v) => (v.id === 1 ? setShowBuildingModal(true) : {})}
+          items={items}
+        />
       </div>
+      <BuildingWayModal
+        show={showBuildingModal}
+        onClose={() => setShowBuildingModal(false)}
+      />
     </div>
   );
 };

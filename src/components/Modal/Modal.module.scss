@@ -4,14 +4,14 @@
 
 .modal {
   height: 100%;
-  padding: 0.9em;
+  padding: 1.5em;
 }
 .headerText {
   color: #002033;
   font-family: Segoe UI;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
 }
 .header {
   color: #002033;
@@ -23,6 +23,8 @@
 }
 .button {
   background: #0059df;
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 .footer {
   justify-content: end;
