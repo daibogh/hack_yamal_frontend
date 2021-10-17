@@ -1,17 +1,15 @@
-import React, { ComponentProps, useMemo } from 'react';
+import React, { ComponentProps, useContext, useMemo } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { LoginPage } from '../pages/LoginPage';
 import { MainPage } from '../pages/MainPage';
+import { useAuthState } from '../hooks/auth';
 type RouteInstance = ComponentProps<typeof Route> & { auth?: boolean } & {
   routes?: RouteInstance[];
   needsAuth?: boolean;
   component: React.FC<any>;
 };
 export const useRoutesConfig: () => RouteInstance[] = () => {
-  const isAuth = {
-    client: true,
-    stakeholder: true,
-  }; // TODO add fake auth
+  const isAuth = useAuthState()[0]; // TODO add fake auth
   return useMemo(
     () => [
       {

@@ -3,10 +3,11 @@ import style from './AppHeader.module.scss';
 import { Breadcrumbs } from '@consta/uikit/Breadcrumbs';
 import { Avatar } from '@consta/uikit/Avatar';
 import { useCurrentRoute } from '../../hooks/use-current-route';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { ContextMenu } from '../ContextMenu';
 import './AppHeader.scss';
 import { BuildingWayModal } from '../BuildingWayModal/buildingWayModal';
+import { useLogout } from '../../hooks/auth';
 
 const items: { id: number; name: string }[] = [
   { id: 1, name: 'Построить маршрут' },
@@ -19,6 +20,8 @@ interface AppHeaderProps {
 
 const AppHeader: React.FC<AppHeaderProps> = ({ className }) => {
   const { isClient } = useCurrentRoute();
+  const history = useHistory();
+  const logout = useLogout();
 
   const [showBuildingModal, setShowBuildingModal] = useState(false);
 
@@ -53,13 +56,17 @@ const AppHeader: React.FC<AppHeaderProps> = ({ className }) => {
       <div className={style.userBlock}>
         <div className={style.userInfo}>
           <div className={style.userName}>{userFullName}</div>
-          <Link to="/login" className={style.logout}>
+          <span onClick={logout} className={style.logout}>
             выйти
-          </Link>
+          </span>
         </div>
         <Avatar name={userFullName} />
         <ContextMenu
-          onSelect={(v) => (v.id === 1 ? setShowBuildingModal(true) : {})}
+          onSelect={(v) =>
+            v.id === 1
+              ? setShowBuildingModal(true)
+              : history.push('/stakeholder/routes')
+          }
           items={items}
         />
       </div>
