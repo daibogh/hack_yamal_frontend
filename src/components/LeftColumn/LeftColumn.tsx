@@ -12,19 +12,23 @@ interface LeftColumnProps {
 const LeftColumn: React.FC<LeftColumnProps> = ({ className }) => {
   const { isStakeholder, isClient } = useCurrentRoute();
   return (
-    <div className={`${style.root} ${className}`}>
-      {isStakeholder && <LeftAdminColumn/>}
-      {isClient && (
-        <>
-          <div>
-            <DateTimeContainer />
-          </div>
-          <div>
-            <FutureDeliveriesContainer className={style.futureDeliveryBlock} />
-          </div>
-        </>
-      )}
-    </div>
+    <React.Suspense fallback={() => <>loading...</>}>
+      <div className={`${style.root} ${className}`}>
+        {isStakeholder && <LeftAdminColumn />}
+        {isClient && (
+          <>
+            <div>
+              <DateTimeContainer />
+            </div>
+            <div>
+              <FutureDeliveriesContainer
+                className={style.futureDeliveryBlock}
+              />
+            </div>
+          </>
+        )}
+      </div>
+    </React.Suspense>
   );
 };
 

@@ -10,8 +10,8 @@ interface FutureDeliveriesProps {
   items: DeliveryInstance[];
 }
 type DeliveryInstance = {
-  oilType: string;
-  dateCreated: string;
+  type: string;
+  date: string;
   amount: number;
   status: 'СОГЛАСОВАНА' | 'НОВАЯ';
 };
@@ -27,11 +27,11 @@ const FutureDeliveries: React.FC<FutureDeliveriesProps> = ({
       </div>
       <div className="FutureDeliveries_itemsContainer">
         <Layout direction="column">
-          {items.map(({ oilType, dateCreated, amount, status }) => (
+          {items.map(({ type, date, amount, status }) => (
             <Layout>
               <Layout flex={1} direction="column">
-                <div className={style.oilType}>{oilType}</div>
-                <div className={style.createdDate}>{dateCreated}</div>
+                <div className={style.oilType}>{type}</div>
+                <div className={style.createdDate}>{date}</div>
               </Layout>
               <Layout flex={1}>{amount} тонн</Layout>
               <Layout flex={1}>

@@ -20,19 +20,19 @@ OverageOilVolumeExample1.args = {
   current: {
     label: 'Прирост за 2021 год',
     items: [
-      { oilVolume: 1234 + 908, oilType: 'ДТ "А" ТУ' },
-      { oilVolume: 868 + 658, oilType: 'ДТ "З" ГОСТ' },
-      { oilVolume: 672 + 433, oilType: 'ДТ "А" ГОСТ' },
-      { oilVolume: 491 + 390, oilType: 'ДТ "Л" ГОСТ' },
+      { volume: 1234 + 908, type: 'ДТ "А" ТУ' },
+      { volume: 868 + 658, type: 'ДТ "З" ГОСТ' },
+      { volume: 672 + 433, type: 'ДТ "А" ГОСТ' },
+      { volume: 491 + 390, type: 'ДТ "Л" ГОСТ' },
     ],
   },
   previous: {
     label: 'Данные 2020 года',
     items: [
-      { oilVolume: 1234, oilType: 'ДТ "А" ТУ' },
-      { oilVolume: 868, oilType: 'ДТ "З" ГОСТ' },
-      { oilVolume: 672, oilType: 'ДТ "А" ГОСТ' },
-      { oilVolume: 491, oilType: 'ДТ "Л" ГОСТ' },
+      { volume: 1234, type: 'ДТ "А" ТУ' },
+      { volume: 868, type: 'ДТ "З" ГОСТ' },
+      { volume: 672, type: 'ДТ "А" ГОСТ' },
+      { volume: 491, type: 'ДТ "Л" ГОСТ' },
     ],
   },
 };
@@ -42,10 +42,10 @@ OverageOilVolumeExample2.args = {
   current: {
     label: 'Прирост за 2021 год',
     items: [
-      { oilVolume: 1234 + 908, oilType: 'ДТ "А" ТУ' },
-      { oilVolume: 868 + 658, oilType: 'ДТ "З" ГОСТ' },
-      { oilVolume: 672 + 433, oilType: 'ДТ "А" ГОСТ' },
-      { oilVolume: 491 + 390, oilType: 'ДТ "Л" ГОСТ' },
+      { volume: 1234 + 908, type: 'ДТ "А" ТУ' },
+      { volume: 868 + 658, type: 'ДТ "З" ГОСТ' },
+      { volume: 672 + 433, type: 'ДТ "А" ГОСТ' },
+      { volume: 491 + 390, type: 'ДТ "Л" ГОСТ' },
     ],
   },
 };

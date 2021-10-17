@@ -17,7 +17,7 @@ export const useDeliveriesHistory = () => {
     'DeliveryHistory',
     getDeliveryHistory,
     { enabled: true }
-  ); //TODO: 4) mock for delivery history query
+  );
   const rows: DeliveryHistoryInstance[] = [
     {
       id: '1',

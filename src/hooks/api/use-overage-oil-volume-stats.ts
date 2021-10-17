@@ -5,19 +5,19 @@ const comparedVolumeStats = {
   current: {
     label: 'Данные за 2021 год',
     items: [
-      { oilVolume: 1234 + 908, oilType: 'ДТ "А" ТУ' },
-      { oilVolume: 868 + 658, oilType: 'ДТ "З" ГОСТ' },
-      { oilVolume: 672 + 433, oilType: 'ДТ "А" ГОСТ' },
-      { oilVolume: 491 + 390, oilType: 'ДТ "Л" ГОСТ' },
+      { volume: 1234 + 908, type: 'ДТ "А" ТУ' },
+      { volume: 868 + 658, type: 'ДТ "З" ГОСТ' },
+      { volume: 672 + 433, type: 'ДТ "А" ГОСТ' },
+      { volume: 491 + 390, type: 'ДТ "Л" ГОСТ' },
     ],
   },
   previous: {
     label: 'Данные за 2020 год',
     items: [
-      { oilVolume: 1234, oilType: 'ДТ "А" ТУ' },
-      { oilVolume: 868, oilType: 'ДТ "З" ГОСТ' },
-      { oilVolume: 672, oilType: 'ДТ "А" ГОСТ' },
-      { oilVolume: 491, oilType: 'ДТ "Л" ГОСТ' },
+      { volume: 1234, type: 'ДТ "А" ТУ' },
+      { volume: 868, type: 'ДТ "З" ГОСТ' },
+      { volume: 672, type: 'ДТ "А" ГОСТ' },
+      { volume: 491, type: 'ДТ "Л" ГОСТ' },
     ],
   },
 };
@@ -26,10 +26,10 @@ const overageVolumeStats = {
   current: {
     label: 'Данные за 2021 год',
     items: [
-      { oilVolume: 1234 + 908, oilType: 'ДТ "А" ТУ' },
-      { oilVolume: 868 + 658, oilType: 'ДТ "З" ГОСТ' },
-      { oilVolume: 672 + 433, oilType: 'ДТ "А" ГОСТ' },
-      { oilVolume: 491 + 390, oilType: 'ДТ "Л" ГОСТ' },
+      { volume: 1234 + 908, type: 'ДТ "А" ТУ' },
+      { volume: 868 + 658, type: 'ДТ "З" ГОСТ' },
+      { volume: 672 + 433, type: 'ДТ "А" ГОСТ' },
+      { volume: 491 + 390, type: 'ДТ "Л" ГОСТ' },
     ],
   },
 };
@@ -38,27 +38,38 @@ export const useOverageOilVolumeStats: () => {
     title: string;
     current: {
       label: string;
-      items: { oilVolume: number; oilType: string }[];
+      items: { volume: number; type: string }[];
     };
   };
   comparedVolumeStats: {
     title: string;
     current: {
       label: string;
-      items: { oilVolume: number; oilType: string }[];
+      items: { volume: number; type: string }[];
     };
     previous: {
       label: string;
-      items: { oilVolume: number; oilType: string }[];
+      items: { volume: number; type: string }[];
     };
   };
 } = () => {
   const { data } = useQuery('OverageOilVolume', getOverageVolumeStats, {
-    enabled: false,
+    enabled: true,
   }); //TODO: 5) mock for overage volume stats query
   const hardcoded = {
     comparedVolumeStats,
     overageVolumeStats,
   };
-  return data || hardcoded;
+  const result = {
+    comparedVolumeStats: {
+      title: 'Общий спрос на топливо',
+      current: data.current_year,
+      previous: data.previous_year,
+    },
+    overageVolumeStats: {
+      title: 'Спрос на топливо за август - сентябрь 2021',
+      current: data.current_year,
+    },
+  };
+  return result || hardcoded;
 };

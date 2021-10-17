@@ -11,11 +11,11 @@ type Stats = {
 };
 type ChartStats = Omit<StatsItem, 'oilVolume'> & {
   label: string;
-  Количество: StatsItem['oilVolume'];
+  Количество: StatsItem['volume'];
 };
 type StatsItem = {
-  oilType: string;
-  oilVolume: number;
+  type: string;
+  volume: number;
 };
 interface OverageOilVolumeProps {
   className?: string;
@@ -34,12 +34,12 @@ const OverageOilVolume: React.FC<OverageOilVolumeProps> = ({
     () => [
       ...(previous?.items || ([] as StatsItem[])).map((item) => ({
         ...item,
-        Количество: item.oilVolume,
+        Количество: item.volume,
         label: previous?.label || '',
       })),
       ...current.items.map((item) => ({
         ...item,
-        Количество: item.oilVolume,
+        Количество: item.volume,
         label: current.label,
       })),
     ],
@@ -53,7 +53,7 @@ const OverageOilVolume: React.FC<OverageOilVolumeProps> = ({
           data={data}
           style={{ marginBottom: 'var(--space-m)' }}
           xField="Количество"
-          yField="oilType"
+          yField="type"
           seriesField={!!previous ? 'label' : undefined}
           isGroup={!!previous}
           color={!!previous ? ['#0094FF', '#0059DF'] : ['#0059DF']}
