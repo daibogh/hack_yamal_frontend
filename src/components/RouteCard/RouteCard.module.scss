@@ -1,0 +1,85 @@
+.cardHeader {
+  display: flex;
+  & > * + * {
+    margin-left: 50px;
+  }
+}
+.routeShortInfo {
+  display: flex;
+}
+.boatName {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 120%;
+  color: #002033;
+}
+.shortRoute {
+  font-weight: 350;
+  font-size: 12px;
+  line-height: 172.5%;
+  color: #667985;
+}
+.boatClassInfo {
+  font-weight: 350;
+  font-size: 12px;
+  line-height: 172.5%;
+  color: #667985;
+}
+.margined35 {
+  margin-right: 35px;
+}
+.placeInfo {
+  & + & {
+    position: relative;
+    margin-left: 60px;
+    &:before {
+      position: absolute;
+      content: '';
+      width: 150px;
+      left: -98px;
+      top: 21px;
+      transform: translateY(-50%);
+      border-top: 3px solid #d7dfe4;
+    }
+    &__passed {
+      &:before {
+        border-top-color: #0059df;
+      }
+    }
+  }
+}
+.ball {
+  width: 42px;
+  height: 42px;
+  background-color: #d7dfe4;
+  border-radius: 50%;
+  margin: 0 39px;
+  &__passed {
+    background-color: #0059df;
+  }
+}
+.placeName {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 172.5%;
+
+  color: #667985;
+}
+.placeStatus {
+  font-style: normal;
+  font-weight: 350;
+  font-size: 12px;
+  line-height: 172.5%;
+
+  color: #667985;
+}
+.placeContainer {
+  display: flex;
+}
+.placeDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

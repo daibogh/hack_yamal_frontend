@@ -1,0 +1,11 @@
+.root {
+  padding: 40px 68px;
+  width: 100%;
+}
+.routesList {
+  display: flex;
+  flex-direction: column;
+  & > * + * {
+    margin-top: 16px;
+  }
+}

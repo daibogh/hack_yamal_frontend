@@ -1,0 +1,12 @@
+.RouteCard {
+  background: #ffffff;
+  /* коробка */
+
+  box-shadow: 0px 5px 8px rgba(0, 32, 51, 0.04);
+  border-radius: 8px;
+  padding: 29px 32px 0 32px;
+  .Collapse-Label > .Icon {
+    margin-bottom: 20px;
+    color: #0059df;
+  }
+}
