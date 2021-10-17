@@ -5,6 +5,7 @@ import { Collapse } from '@consta/uikit/Collapse';
 import { useBoolean } from 'react-use';
 import { Badge } from '@consta/uikit/Badge';
 import cn from 'classnames';
+
 interface RouteCardProps {
   boatInfo: {
     name: string;
@@ -18,7 +19,7 @@ interface RouteCardProps {
     swimmingDistrict: string;
   };
   fromToWay: string;
-  status: 'в пути' | 'стоит' | 'на перекачке';
+  status: 'в пути' | 'стоит';
   path: {
     type: 'разгрузка' | 'загрузка из матки';
     lat: number;

@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import style from './Button.module.scss';
 
 import { Button as ButtonTemplate } from '@consta/uikit/Button';
-interface ButtonProps {
-  className?: string;
-  size?: 'm' | 'xs' | 's' | 'l';
-  label?: string;
-  onClick?: () => void;
-}
 
-const Button: React.FC<ButtonProps> = ({ className, size, label, onClick }) => {
+const Button: React.FC<ComponentProps<typeof ButtonTemplate>> = ({
+  className,
+  size,
+  label,
+  onClick,
+  view,
+}) => {
   return (
     <ButtonTemplate
       onClick={onClick}
       size={size}
       label={label}
       className={`${style.root} ${className}`}
+      view={view}
     ></ButtonTemplate>
   );
 };

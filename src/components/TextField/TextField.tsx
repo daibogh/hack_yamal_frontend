@@ -5,17 +5,25 @@ import { Layout } from '../Layout';
 
 interface TextFieldProps {
   className?: string;
-  label?:string;
+  label?: string;
+  value?: string | null;
+  onChange?: (value: string | null) => void;
 }
 
-const TextField: React.FC<TextFieldProps> = ({ className, label }) => {
+const TextField: React.FC<TextFieldProps> = ({
+  className,
+  label,
+  value,
+  onChange,
+}) => {
   return (
     <Layout direction="column">
-    {label && <div className={`${style.label}`}>{label}</div>}
-    <TextFieldTemplate
-      value="10"
-      className={`${style.root} ${className}`}
-    ></TextFieldTemplate>
+      {label && <div className={`${style.label}`}>{label}</div>}
+      <TextFieldTemplate
+        onChange={({ value }) => onChange && onChange(value)}
+        value={value}
+        className={`${style.root} ${className}`}
+      ></TextFieldTemplate>
     </Layout>
   );
 };

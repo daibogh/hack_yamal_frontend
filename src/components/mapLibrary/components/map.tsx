@@ -158,7 +158,6 @@ export const Map: React.FC<Props> = ({
             strokeWidth: 2.5,
             strokeColor: '#0059DF',
           });
-
           myMap.geoObjects.add(myPolyline);
         }
       });

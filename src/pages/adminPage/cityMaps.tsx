@@ -41,7 +41,10 @@ const placemarksConst: GeoEventModel[] = [
     lat: 66.856091,
     lon: 70.851278,
     name: 'Яр-сале',
-    fuels: [{ weight: 10, name: 'ДТ "A" ТУ' }],
+    fuels: [
+      { weight: 10, name: 'ДТ "A" ТУ' },
+      { name: 'ДТ "А" ГОСТ', weight: 25 },
+    ],
   }, //яр-сале
   {
     id: 4,

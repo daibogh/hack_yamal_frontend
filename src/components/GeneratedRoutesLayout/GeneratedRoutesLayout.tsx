@@ -26,7 +26,7 @@ const GeneratedRoutesLayout: React.FC<GeneratedRoutesLayoutProps> = ({
           ))}
         </div>
       )}
-      {view === 'map' && <CityMaps />}
+      {view === 'map' && <CityMaps ways />}
     </div>
   );
 };
