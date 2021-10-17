@@ -53,6 +53,56 @@ const placemarksConst: GeoEventModel[] = [
     name: 'Сеяха',
     fuels: [{ weight: 10, name: 'ДТ "A" ТУ' }],
   }, //сеяха
+  {
+    id: 5,
+    lon: 65.754325,
+    lat: 64.983271,
+    name: 'Лопхари',
+    fuels: [
+      { weight: 10, name: 'ДТ "A" ТУ' },
+      { name: 'ДТ "А" ГОСТ', weight: 25 },
+    ],
+  },
+  {
+    id: 6,
+    lon: 65.27318,
+    lat: 65.055322,
+    name: 'Горки',
+    fuels: [
+      { weight: 10, name: 'ДТ "A" ТУ' },
+      { name: 'ДТ "А" ГОСТ', weight: 25 },
+    ],
+  },
+  {
+    id: 7,
+    lon: 65.903275,
+    lat: 65.842173,
+    name: 'Питляр',
+    fuels: [
+      { weight: 10, name: 'ДТ "A" ТУ' },
+      { name: 'ДТ "А" ГОСТ', weight: 25 },
+    ],
+  },
+  {
+    id: 8,
+    lon: 65.345676,
+    lat: 65.901802,
+    name: 'Шурышкары',
+    fuels: [
+      { weight: 10, name: 'ДТ "A" ТУ' },
+      { name: 'ДТ "А" ГОСТ', weight: 25 },
+    ],
+  },
+  {
+    id: 9,
+    lon: 66.075512,
+    lat: 66.324116,
+    name: 'Катравож',
+    fuels: [
+      { weight: 10, name: 'ДТ "A" ТУ' },
+      { name: 'ДТ "А" ГОСТ', weight: 25 },
+    ],
+  },
 ];
 
 const mapParametrsApi: ymaps.ParametrsApi = {
@@ -60,7 +110,6 @@ const mapParametrsApi: ymaps.ParametrsApi = {
   lang: 'ru_RU',
   mode: 'debug',
 };
-
 interface CityMapsProps {
   className?: string;
   ways?: boolean;
@@ -74,7 +123,13 @@ export const CityMaps: React.FC<CityMapsProps> = React.memo(
         ways={ways}
         geoEvents={[]}
         parametrsApi={mapParametrsApi}
-        state={mapState}
+        state={{
+          ...mapState,
+          zoom: ways ? 8 : 5,
+          center: ways
+            ? [65.59292400325111, 65.44664984944318]
+            : [69.148271, 77.100097],
+        }}
       >
         {placemarksConst.map((event, key) => (
           <Placemark
