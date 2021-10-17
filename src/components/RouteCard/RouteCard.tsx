@@ -5,6 +5,7 @@ import { Collapse } from '@consta/uikit/Collapse';
 import { useBoolean } from 'react-use';
 import { Badge } from '@consta/uikit/Badge';
 import cn from 'classnames';
+
 interface RouteCardProps {
   boatInfo: {
     name: string;

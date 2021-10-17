@@ -49,10 +49,10 @@ export const HistoryPart: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [request, setRequest] = useState<{
     type?: DefaultItem;
-    count: number;
+    count: string|null;
     date: Date | null;
   }>({
-    count: 0,
+    count:null,
     date: new Date(),
   });
 
@@ -91,12 +91,16 @@ export const HistoryPart: React.FC = () => {
             <Select
               label="Тип топлива"
               value={request.type}
-              className="select"
+              className="select-type"
               size="m"
               onChange={(v) => setRequest({ ...request, type: v })}
               items={items}
             />
-            <TextField label="Количество" />
+            <TextField
+              onChange={(v) => setRequest({ ...request, count: v })}
+              value={request.count}
+              label="Количество"
+            />
             <DatePicker
               label="Дата"
               onChange={(v) => setRequest({ ...request, date: v })}

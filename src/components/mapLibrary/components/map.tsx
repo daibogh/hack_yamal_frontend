@@ -26,6 +26,7 @@ interface Props {
     options: ymaps.PlacemarkOptions;
   };
   onClickNewPlacemark?: (id: string) => void;
+  ways?: boolean;
 }
 
 export const Map: React.FC<Props> = ({
@@ -34,6 +35,7 @@ export const Map: React.FC<Props> = ({
   options,
   children,
   className,
+  ways
 }) => {
   let myMap: ymaps.Map | undefined;
   useEffect(() => {
@@ -81,7 +83,7 @@ export const Map: React.FC<Props> = ({
           placemark = new ymaps.Placemark(
             geometry,
             {
-              balloonContent: balloonContentLayout,
+              balloonContent: ways? '': balloonContentLayout,
               iconCaption: model.name,
             },
             { preset: 'islands#circleIcon', iconColor: '#0059DF' }
@@ -99,17 +101,19 @@ export const Map: React.FC<Props> = ({
           }
         });
 
-        var myPolyline = new ymaps.Polyline(
-          [
-            [69.097106, 76.87626],
-            [66.151575, 72.410689],
-            [65.714648, 82.41785],
-          ],
-          undefined,
-          { strokeWidth: 2.5, strokeColor: '#0059DF' }
-        );
+        if (ways) {
+          var myPolyline = new ymaps.Polyline(
+            [
+              [69.097106, 76.87626],
+              [66.151575, 72.410689],
+              [65.714648, 82.41785],
+            ],
+            undefined,
+            { strokeWidth: 2.5, strokeColor: '#0059DF' }
+          );
 
-        myMap.geoObjects.add(myPolyline);
+          myMap.geoObjects.add(myPolyline);
+        }
       });
     } catch (error) {
       console.log(error);
