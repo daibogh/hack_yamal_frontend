@@ -25,17 +25,24 @@ export const useRoutesConfig: () => RouteInstance[] = () => {
           },
           {
             path: '/client',
-            component: () => null,
+            component: ({ children }) => children,
             needsAuth: true,
             exact: true,
             auth: isAuth.client,
           },
           {
             path: '/stakeholder',
-            component: () => null,
+            component: ({ children }) => children,
             needsAuth: true,
             exact: true,
             auth: isAuth.stakeholder,
+            routes: [
+              {
+                path: '/stakeholder/routes',
+                component: ({ children }) => children,
+                exact: true,
+              },
+            ],
           },
         ],
       },

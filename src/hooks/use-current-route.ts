@@ -5,6 +5,10 @@ export const useCurrentRoute = () => {
   const isStakeholder = useMemo(() => location.pathname === '/stakeholder', [
     location,
   ]);
+  const isStakeholderRoutes = useMemo(
+    () => location.pathname === '/stakeholder/routes',
+    [location]
+  );
   const isClient = useMemo(() => location.pathname === '/client', [location]);
   const isLogin = useMemo(() => location.pathname === '/login', [location]);
   console.log(location);
@@ -13,7 +17,8 @@ export const useCurrentRoute = () => {
       isStakeholder,
       isClient,
       isLogin,
+      isStakeholderRoutes,
     }),
-    [isStakeholder, isClient]
+    [isStakeholder, isClient, isStakeholderRoutes, isLogin]
   );
 };
