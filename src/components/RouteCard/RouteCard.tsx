@@ -18,7 +18,7 @@ interface RouteCardProps {
     swimmingDistrict: string;
   };
   fromToWay: string;
-  status: 'в пути' | 'стоит' | 'на перекачке';
+  status: 'в пути' | 'стоит';
   path: {
     type: 'разгрузка' | 'загрузка из матки';
     lat: number;

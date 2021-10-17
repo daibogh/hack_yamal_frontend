@@ -23,49 +23,35 @@ export const useGeneratedRoutes: () => ComponentProps<
           liquidMeter: 'ВЖУ 100-1,6',
           swimmingDistrict: 'M',
         },
-        fromToWay: 'Лопхари - Салехард',
+        fromToWay: 'Мыс Каменный - Обь-Се-Яха',
         status: 'в пути',
         path: [
           {
             type: 'разгрузка',
             lat: 69.097106,
             lon: 76.87626,
-            name: 'Антипаюта',
+            name: 'Мыс Каменный',
             passed: true,
           }, //антипаюта
           {
             type: 'разгрузка',
             lat: 66.151575,
             lon: 72.410689,
-            name: 'Нори',
+            name: 'Обь-Антипаюта',
             passed: true,
           }, //нори
           {
             type: 'загрузка из матки',
             lat: 65.714648,
             lon: 82.41785,
-            name: 'Красноселькуп',
+            name: 'Обь-Се-Яха',
             passed: false,
           }, //красноселькуп
-          {
-            type: 'разгрузка',
-            lat: 66.856091,
-            lon: 70.851278,
-            name: 'Яр-сале',
-            passed: false,
-          }, //яр-сале
-          {
-            type: 'разгрузка',
-            lat: 70.165418,
-            lon: 72.497573,
-            name: 'Сеяха',
-            passed: false,
-          }, //сеяха
         ],
       },
       {
         boatInfo: {
-          name: 'Урал',
+          name: 'Старица-2',
           boatClass: '«М» 2,0 лёд 30',
           power: 1270,
           liftingCapacity: 1270,
@@ -75,49 +61,35 @@ export const useGeneratedRoutes: () => ComponentProps<
           liquidMeter: 'ВЖУ 100-1,6',
           swimmingDistrict: 'M',
         },
-        fromToWay: 'Лопхари - Салехард',
+        fromToWay: 'Обь-Антипаюта - Обь-Се-Яха',
         status: 'в пути',
         path: [
           {
             type: 'разгрузка',
             lat: 69.097106,
             lon: 76.87626,
-            name: 'Антипаюта',
+            name: 'Обь-Антипаюта',
             passed: true,
           }, //антипаюта
           {
             type: 'разгрузка',
             lat: 66.151575,
             lon: 72.410689,
-            name: 'Нори',
-            passed: true,
+            name: 'Антипаюта',
+            passed: false,
           }, //нори
           {
             type: 'загрузка из матки',
             lat: 65.714648,
             lon: 82.41785,
-            name: 'Красноселькуп',
+            name: 'Обь-Се-Яха',
             passed: false,
           }, //красноселькуп
-          {
-            type: 'разгрузка',
-            lat: 66.856091,
-            lon: 70.851278,
-            name: 'Яр-сале',
-            passed: false,
-          }, //яр-сале
-          {
-            type: 'разгрузка',
-            lat: 70.165418,
-            lon: 72.497573,
-            name: 'Сеяха',
-            passed: false,
-          }, //сеяха
         ],
       },
       {
         boatInfo: {
-          name: 'Урал',
+          name: 'Пойма-2',
           boatClass: '«М» 2,0 лёд 30',
           power: 1270,
           liftingCapacity: 1270,
@@ -127,44 +99,30 @@ export const useGeneratedRoutes: () => ComponentProps<
           liquidMeter: 'ВЖУ 100-1,6',
           swimmingDistrict: 'M',
         },
-        fromToWay: 'Лопхари - Салехард',
-        status: 'в пути',
+        fromToWay: 'Обь-Кутопьюган - Обь-Ныда',
+        status: 'стоит',
         path: [
           {
             type: 'разгрузка',
             lat: 69.097106,
             lon: 76.87626,
-            name: 'Антипаюта',
-            passed: true,
+            name: 'Обь-Кутопьюган',
+            passed: false,
           }, //антипаюта
           {
             type: 'разгрузка',
             lat: 66.151575,
             lon: 72.410689,
-            name: 'Нори',
-            passed: true,
+            name: 'Кутопьюган',
+            passed: false,
           }, //нори
           {
             type: 'загрузка из матки',
             lat: 65.714648,
             lon: 82.41785,
-            name: 'Красноселькуп',
+            name: 'Обь-Ныда',
             passed: false,
           }, //красноселькуп
-          {
-            type: 'разгрузка',
-            lat: 66.856091,
-            lon: 70.851278,
-            name: 'Яр-сале',
-            passed: false,
-          }, //яр-сале
-          {
-            type: 'разгрузка',
-            lat: 70.165418,
-            lon: 72.497573,
-            name: 'Сеяха',
-            passed: false,
-          }, //сеяха
         ],
       },
     ]
