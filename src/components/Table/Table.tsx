@@ -27,7 +27,7 @@ interface DeliveryHistoryInstance {
 
   date: string;
   type: Type;
-  count: number;
+  amount: number;
 }
 
 const columns: TableColumn<DeliveryHistoryInstance>[] = [
@@ -47,8 +47,8 @@ const columns: TableColumn<DeliveryHistoryInstance>[] = [
     ),
   },
   {
-    title: 'Количество (тыс.тонн)',
-    accessor: 'count',
+    title: 'Количество (тонн)',
+    accessor: 'amount',
   },
 ];
 
