@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://daibogh.github.io/hack_yamal_frontend",
   "dependencies": {
     "@consta/charts": "^0.2.3",
     "@consta/uikit": "^3.7.0",
@@ -26,7 +27,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "prod": "npm run build && serve -s build"
+    "prod": "npm run build && serve -s build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -68,6 +71,7 @@
     "blueprint-templates-cli": "^0.1.13",
     "css-loader": "^6.4.0",
     "express": "^4.17.1",
+    "gh-pages": "^3.2.3",
     "path": "^0.12.7",
     "sass": "^1.43.2",
     "sass-loader": "^10.2.0",
