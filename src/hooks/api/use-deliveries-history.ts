@@ -38,6 +38,25 @@ export const useDeliveriesHistory = () => {
       type: Type.DTAGOST,
       count: 13,
     },
+    {
+      id: '1',
+      date: '5 августа 2021',
+      type: Type.DTATY,
+      count: 10,
+    },
+    {
+      id: '2',
+
+      date: '4 августа 2021',
+      type: Type.DZGOST,
+      count: 40,
+    },
+    {
+      id: '3',
+      date: '1 августа 2021',
+      type: Type.DTAGOST,
+      count: 13,
+    },
   ];
   return deliveryHistoryList || rows;
 };

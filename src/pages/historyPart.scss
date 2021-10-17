@@ -2,10 +2,10 @@
   .history-label {
     color: #002033;
     font-size: 24px;
-    margin-right: 1.5em;
     font-weight: bold;
   }
   .history-header {
+    justify-content: space-between;
     .date {
       display: flex;
       align-items: center;
@@ -15,14 +15,12 @@
       }
       font-size: 14px;
       color: #667985;
-      margin-right: 2.5em;
     }
   }
   .line {
     align-items: center;
   }
   .select {
-    width: 15em;
     padding-top: 0.8em;
     margin-right: 2em;
   }

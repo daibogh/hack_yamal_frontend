@@ -58,7 +58,7 @@ const mapParametrsApi: ymaps.ParametrsApi = {
   mode: 'debug',
 };
 
-export const CityMaps: React.FC = ({ children }) => {
+export const CityMaps: React.FC = React.memo(({ children }) => {
   return (
     <Map
       className="map"
@@ -76,4 +76,4 @@ export const CityMaps: React.FC = ({ children }) => {
       ))}
     </Map>
   );
-};
+});

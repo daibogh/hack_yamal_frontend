@@ -22,7 +22,7 @@ const Select: React.FC<SelectProps> = ({
   label,
 }) => {
   return (
-    <Layout direction="column">
+    <div className={style.root}>
       {label && <div className={`${style.label}`}>{label}</div>}
       <SelectTemplate
         value={value}
@@ -31,7 +31,7 @@ const Select: React.FC<SelectProps> = ({
         items={items}
         className={`${style.root} ${className}`}
       ></SelectTemplate>
-    </Layout>
+    </div>
   );
 };
 

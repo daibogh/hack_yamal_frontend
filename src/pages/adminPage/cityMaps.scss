@@ -1,12 +1,12 @@
 .map {
   height: 100%;
   width: 100%;
-  [class*="ymaps-2"][class*="-ground-pane"] {
-    -webkit-filter: grayscale(100%) url(/path-to-svg/yellowfilter.svg#yellowfilter);
-            filter: grayscale(100%) url(/path-to-svg/yellowfilter.svg#yellowfilter);
+  [class*='ymaps-2'][class*='-ground-pane'] {
+    -webkit-filter: grayscale(100%)
+      url(/path-to-svg/yellowfilter.svg#yellowfilter);
+    filter: grayscale(100%) url(/path-to-svg/yellowfilter.svg#yellowfilter);
   }
   .header {
-    font-family: Segoe UI;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
@@ -15,7 +15,6 @@
   }
   .type {
     width: 7em;
-    font-family: Segoe UI;
     font-style: normal;
     font-weight: 350;
     font-size: 12px;
@@ -23,7 +22,6 @@
     color: #667985;
   }
   .count {
-    font-family: Segoe UI;
     font-style: normal;
     font-weight: 600;
     font-size: 12px;

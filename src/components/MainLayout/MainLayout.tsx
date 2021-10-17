@@ -25,11 +25,12 @@ const MainLayout: React.FC<MainLayoutProps> = ({ className }) => {
   );
   return isLogin ? null : (
     <div className={style.root}>
-      {isStakeholderRoutes ? (
-        <GeneratedRoutesLayout />
-      ) : (
-        <>
-          <AppHeader className={style.header} />
+      <>
+        <AppHeader className={style.header} />
+
+        {isStakeholderRoutes ? (
+          <GeneratedRoutesLayout />
+        ) : (
           <Layout>
             <Layout flex={col1Size}>
               {/* <div style={{ width: '100%', border: '1px solid red' }}></div> */}
@@ -39,8 +40,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ className }) => {
               <RightColumn />
             </Layout>
           </Layout>
-        </>
-      )}
+        )}
+      </>
     </div>
   );
 };
