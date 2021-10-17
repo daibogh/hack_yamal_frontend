@@ -36,6 +36,7 @@ const creds = {
 //     </AuthContext.Provider>
 //   );
 // };
+export const isSimpleAuthEnabled = !!process.env.REACT_APP_SIMPLE_AUTH;
 export const useAuthState = createGlobalState(initialState);
 export const useAuth = () => {
   const [state, setState] = useAuthState();
@@ -44,8 +45,9 @@ export const useAuth = () => {
       setState({ client: true, stakeholder: false });
     }
     if (
-      name === creds.stakeholder.name &&
-      password === creds.stakeholder.password
+      isSimpleAuthEnabled ||
+      (name === creds.stakeholder.name &&
+        password === creds.stakeholder.password)
     ) {
       setState({ stakeholder: true, client: false });
     }
@@ -54,4 +56,9 @@ export const useAuth = () => {
 export const useLogout = () => {
   const setState = useAuthState()[1];
   return () => setState(initialState);
+};
+export const useSimpleAuth = () => {
+  const setState = useAuthState()[1];
+  return (userType: 'stakeholder' | 'client') =>
+    setState((state) => ({ ...state, [userType]: true }));
 };
