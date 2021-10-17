@@ -5,6 +5,7 @@ import { TextField } from '@consta/uikit/TextField';
 import { Card } from '../components/Card';
 import { Header } from '@consta/uikit/Header';
 import { Button } from '../components/Button';
+import logo from './logo.png';
 // import { AuthContext, useAuth } from '../hooks/auth';
 import { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -35,7 +36,12 @@ export const LoginPage: React.FC = () => {
     <Grid yAlign="center" xAlign="center" rowGap="m" className={style.root}>
       <GridItem>
         <Card>
-          <Header leftSide="Пожалуйста, авторизуйтесь" />
+          <div
+            style={{ display: 'flex', justifyContent: 'center', width: 212 }}
+          >
+            <img src={logo} width={200} />
+          </div>
+          {/* <Header leftSide="Пожалуйста, авторизуйтесь" /> */}
           <div className={style.form}>
             <TextField
               onChange={({ value }) => setName(value || '')}

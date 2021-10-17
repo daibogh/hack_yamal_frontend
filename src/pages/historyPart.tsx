@@ -57,52 +57,54 @@ export const HistoryPart: React.FC = () => {
   });
 
   return (
-    <Layout direction="column" flex={1} className="history-part">
-      <Layout className="history-header line" direction="row">
-        <div className="history-label">История поставок</div>
-        <div className="date">
-          <IconCalendar className="icon-calendar" size="s" />
-          2020-2021, август
-        </div>
-        <Select
-          value={type}
-          className="select"
-          size="s"
-          onChange={(v) => setType(v)}
-          items={items}
-        />
-        <Button
-          onClick={() => setShowModal(true)}
-          className="button"
-          label="Запросить поставку"
-          size="s"
-        />
-      </Layout>
-      <Table className="table" />
-      <Modal
-      onApply={() => setShowModal(false)}
-        footerLabel="Запросить"
-        header="Запрос на поставку"
-        show={showModal}
-        onClose={() => setShowModal(false)}
-      >
-        <Layout direction="column">
+    <React.Suspense fallback={() => <>loading...</>}>
+      <Layout direction="column" flex={1} className="history-part">
+        <Layout className="history-header line" direction="row">
+          <div className="history-label">История поставок</div>
+          <div className="date">
+            <IconCalendar className="icon-calendar" size="s" />
+            2020-2021, август
+          </div>
           <Select
-            label="Тип топлива"
-            value={request.type}
+            value={type}
             className="select"
-            size="m"
-            onChange={(v) => setRequest({ ...request, type: v })}
+            size="s"
+            onChange={(v) => setType(v)}
             items={items}
           />
-          <TextField label="Количество" />
-          <DatePicker
-            label="Дата"
-            onChange={(v) => setRequest({ ...request, date: v })}
-            value={request.date}
+          <Button
+            onClick={() => setShowModal(true)}
+            className="button"
+            label="Запросить поставку"
+            size="s"
           />
         </Layout>
-      </Modal>
-    </Layout>
+        <Table className="table" />
+        <Modal
+          onApply={() => setShowModal(false)}
+          footerLabel="Запросить"
+          header="Запрос на поставку"
+          show={showModal}
+          onClose={() => setShowModal(false)}
+        >
+          <Layout direction="column">
+            <Select
+              label="Тип топлива"
+              value={request.type}
+              className="select"
+              size="m"
+              onChange={(v) => setRequest({ ...request, type: v })}
+              items={items}
+            />
+            <TextField label="Количество" />
+            <DatePicker
+              label="Дата"
+              onChange={(v) => setRequest({ ...request, date: v })}
+              value={request.date}
+            />
+          </Layout>
+        </Modal>
+      </Layout>
+    </React.Suspense>
   );
 };

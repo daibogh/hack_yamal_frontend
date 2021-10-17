@@ -4,6 +4,7 @@
   height: 100vh;
 }
 .form {
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   & > *:last-child {

@@ -11,7 +11,7 @@ import { useLogout } from '../../hooks/auth';
 
 const items: { id: number; name: string }[] = [
   { id: 1, name: 'Построить маршрут' },
-  { id: 2, name: 'Посмотреть архив маршрутов' },
+  { id: 2, name: 'Посмотреть построенные маршруты' },
 ];
 
 interface AppHeaderProps {
@@ -25,7 +25,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ className }) => {
 
   const [showBuildingModal, setShowBuildingModal] = useState(false);
 
-  const userFullName = isClient ? 'Дмитриев Александр' : 'Иванов Иван'; // TODO 2) Mock на инфу о пользователе
+  const userFullName = isClient ? 'Дмитриев Дмитрий' : 'Иванов Иван'; // TODO 2) Mock на инфу о пользователе
   const pages = [
     {
       label: (

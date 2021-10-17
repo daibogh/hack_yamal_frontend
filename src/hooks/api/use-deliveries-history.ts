@@ -10,53 +10,53 @@ interface DeliveryHistoryInstance {
 
   date: string;
   type: Type;
-  count: number;
+  amount: number;
 }
 export const useDeliveriesHistory = () => {
   const { data: deliveryHistoryList } = useQuery(
     'DeliveryHistory',
     getDeliveryHistory,
-    { enabled: false }
-  ); //TODO: 4) mock for delivery history query
+    { enabled: true }
+  );
   const rows: DeliveryHistoryInstance[] = [
     {
       id: '1',
       date: '28 августа 2021',
       type: Type.DTATY,
-      count: 10,
+      amount: 10,
     },
     {
       id: '2',
 
       date: '22 августа 2021',
       type: Type.DZGOST,
-      count: 40,
+      amount: 40,
     },
     {
       id: '3',
       date: '10 августа 2021',
       type: Type.DTAGOST,
-      count: 13,
+      amount: 13,
     },
     {
       id: '1',
       date: '5 августа 2021',
       type: Type.DTATY,
-      count: 10,
+      amount: 10,
     },
     {
       id: '2',
 
       date: '4 августа 2021',
       type: Type.DZGOST,
-      count: 40,
+      amount: 40,
     },
     {
       id: '3',
       date: '1 августа 2021',
       type: Type.DTAGOST,
-      count: 13,
+      amount: 13,
     },
   ];
-  return deliveryHistoryList || rows;
+  return deliveryHistoryList;
 };

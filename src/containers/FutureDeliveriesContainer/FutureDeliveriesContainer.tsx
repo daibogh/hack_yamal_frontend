@@ -11,11 +11,9 @@ const FutureDeliveriesContainer: React.FC<FutureDeliveriesContainerProps> = ({
 }) => {
   const futureDeliveriesList = useFutureDeliveriesList();
   return (
-    <React.Suspense fallback={() => <>loading...</>}>
-      <div className={className}>
-        <FutureDeliveries items={futureDeliveriesList} />
-      </div>
-    </React.Suspense>
+    <div className={className}>
+      <FutureDeliveries items={futureDeliveriesList} />
+    </div>
   );
 };
 

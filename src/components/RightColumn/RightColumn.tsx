@@ -11,14 +11,16 @@ interface RightColumnProps {
 const RightColumn: React.FC<RightColumnProps> = ({ className }) => {
   const { isStakeholder, isClient } = useCurrentRoute();
   return (
-    <div className={`${style.root} ${className}`}>
-      {isStakeholder && <OverageOilVolumeContainer />}
-      {isClient && (
-        <div>
-          <HistoryPart />
-        </div>
-      )}
-    </div>
+    <React.Suspense fallback={() => <>loading...</>}>
+      <div className={`${style.root} ${className}`}>
+        {isStakeholder && <OverageOilVolumeContainer />}
+        {isClient && (
+          <div>
+            <HistoryPart />
+          </div>
+        )}
+      </div>
+    </React.Suspense>
   );
 };
 
