@@ -19,7 +19,7 @@ interface AppHeaderProps {
 }
 
 const AppHeader: React.FC<AppHeaderProps> = ({ className }) => {
-  const { isClient } = useCurrentRoute();
+  const { isClient, isStakeholder } = useCurrentRoute();
   const history = useHistory();
   const logout = useLogout();
 
@@ -61,14 +61,16 @@ const AppHeader: React.FC<AppHeaderProps> = ({ className }) => {
           </span>
         </div>
         <Avatar name={userFullName} />
-        <ContextMenu
-          onSelect={(v) =>
-            v.id === 1
-              ? setShowBuildingModal(true)
-              : history.push('/stakeholder/routes')
-          }
-          items={items}
-        />
+        {isStakeholder && (
+          <ContextMenu
+            onSelect={(v) =>
+              v.id === 1
+                ? setShowBuildingModal(true)
+                : history.push('/stakeholder/routes')
+            }
+            items={items}
+          />
+        )}
       </div>
       <BuildingWayModal
         show={showBuildingModal}
