@@ -41,7 +41,10 @@ const placemarksConst: GeoEventModel[] = [
     lat: 66.856091,
     lon: 70.851278,
     name: 'Яр-сале',
-    fuels: [{ weight: 10, name: 'ДТ "A" ТУ' }],
+    fuels: [
+      { weight: 10, name: 'ДТ "A" ТУ' },
+      { name: 'ДТ "А" ГОСТ', weight: 25 },
+    ],
   }, //яр-сале
   {
     id: 4,
@@ -58,22 +61,30 @@ const mapParametrsApi: ymaps.ParametrsApi = {
   mode: 'debug',
 };
 
-export const CityMaps: React.FC = React.memo(({ children }) => {
-  return (
-    <Map
-      className="map"
-      geoEvents={[]}
-      parametrsApi={mapParametrsApi}
-      state={mapState}
-    >
-      {placemarksConst.map((event, key) => (
-        <Placemark
-          model={event}
-          key={key + 'Placemark'}
-          onClick={() => {}}
-          geometry={[event.lat, event.lon]}
-        ></Placemark>
-      ))}
-    </Map>
-  );
-});
+interface CityMapsProps {
+  className?: string;
+  ways?: boolean;
+}
+
+export const CityMaps: React.FC<CityMapsProps> = React.memo(
+  ({ children, ways }) => {
+    return (
+      <Map
+        className="map"
+        ways={ways}
+        geoEvents={[]}
+        parametrsApi={mapParametrsApi}
+        state={mapState}
+      >
+        {placemarksConst.map((event, key) => (
+          <Placemark
+            model={event}
+            key={key + 'Placemark'}
+            onClick={() => {}}
+            geometry={[event.lat, event.lon]}
+          ></Placemark>
+        ))}
+      </Map>
+    );
+  }
+);
