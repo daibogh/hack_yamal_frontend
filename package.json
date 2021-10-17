@@ -25,7 +25,8 @@
     "cc": "create-component",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "prod": "npm run build && serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -70,6 +71,7 @@
     "path": "^0.12.7",
     "sass": "^1.43.2",
     "sass-loader": "^10.2.0",
+    "serve": "^12.0.1",
     "style-loader": "^3.3.0",
     "typescript": "^4.0.3"
   }

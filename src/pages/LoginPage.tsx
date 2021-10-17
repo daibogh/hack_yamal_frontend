@@ -1,26 +1,30 @@
 import style from './LoginPage.module.scss';
-import React, { useContext, useState } from 'react';
+import './LoginPage.scss';
+import React, { useState } from 'react';
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { TextField } from '@consta/uikit/TextField';
 import { Card } from '../components/Card';
 import { Header } from '@consta/uikit/Header';
 import { Button } from '../components/Button';
 import logo from './logo.png';
-// import { AuthContext, useAuth } from '../hooks/auth';
+import cn from 'classnames';
+
 import { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { useAuth, useAuthState } from '../hooks/auth';
+import {
+  isSimpleAuthEnabled,
+  useAuth,
+  useAuthState,
+  useSimpleAuth,
+} from '../hooks/auth';
 export const LoginPage: React.FC = () => {
   const location = useLocation();
   const [name, setName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const history = useHistory();
   const doAuth = useAuth();
+  const simpleAuth = useSimpleAuth();
   const [auth] = useAuthState();
-  // const [
-  //   { client: isAuthClient, stakeholder: isAuthStakeholder },
-  //   doAuth,
-  // ] = useContext(AuthContext);
   useEffect(() => {
     if (auth.client && !(location.pathname as string).startsWith('/client')) {
       history.push('/client');
@@ -33,33 +37,56 @@ export const LoginPage: React.FC = () => {
     }
   }, [auth]);
   return (
-    <Grid yAlign="center" xAlign="center" rowGap="m" className={style.root}>
+    <Grid
+      yAlign="center"
+      xAlign="center"
+      rowGap="m"
+      className={cn(style.root, 'LoginPage')}
+    >
       <GridItem>
-        <Card>
-          <div
-            style={{ display: 'flex', justifyContent: 'center', width: 212 }}
-          >
-            <img src={logo} width={200} />
+        <Card className={style.card}>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <img src={logo} width={200} style={{ marginRight: 15 }} />
           </div>
-          {/* <Header leftSide="Пожалуйста, авторизуйтесь" /> */}
+
           <div className={style.form}>
-            <TextField
-              onChange={({ value }) => setName(value || '')}
-              value={name}
-              view="default"
-              type="text"
-              name="name"
-              label="Имя пользователя"
-            />
-            <TextField
-              value={password}
-              onChange={({ value }) => setPassword(value || '')}
-              view="default"
-              type="password"
-              name="password"
-              label="Пароль"
-            />
-            <Button label="Войти" onClick={() => doAuth({ name, password })} />
+            {isSimpleAuthEnabled ? (
+              <>
+                <Button
+                  view="primary"
+                  label="ВОЙТИ КАК ПОТРЕБИТЕЛЬ"
+                  onClick={() => simpleAuth('client')}
+                />
+                <Button
+                  view="secondary"
+                  label="ВОЙТИ КАК АДМИНИСТРАТОР"
+                  onClick={() => simpleAuth('stakeholder')}
+                />
+              </>
+            ) : (
+              <>
+                <TextField
+                  onChange={({ value }) => setName(value || '')}
+                  value={name}
+                  view="default"
+                  type="text"
+                  name="name"
+                  label="Имя пользователя"
+                />
+                <TextField
+                  value={password}
+                  onChange={({ value }) => setPassword(value || '')}
+                  view="default"
+                  type="password"
+                  name="password"
+                  label="Пароль"
+                />
+                <Button
+                  label="Войти"
+                  onClick={() => doAuth({ name, password })}
+                />
+              </>
+            )}
           </div>
         </Card>
       </GridItem>
